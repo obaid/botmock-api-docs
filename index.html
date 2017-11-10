@@ -1,0 +1,670 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+
+<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization: Bearer YOUR-API-TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">YOUR-API-TOKEN</code> with your API key.</p>
+</blockquote>
+
+<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+
+<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">Authorization: YOUR-API-TOKEN</code></p>
+
+<aside class="notice">
+You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
+</aside>
+
+<h1 id="teams">Teams</h1>
+
+<h2 id="get-all-teams">Get All Teams</h2>
+
+<blockquote>
+<p>To get all teams, use this code:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams"</span>
+  -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38881</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Team"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.gravatar.com/avatar/00f062fb089de61b9a7e8033bc40109a.jpg?s=200&amp;d=identicon"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-10 20:45:21.000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">133244</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Second team"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.gravatar.com/avatar/1c5a10ff164629b4da3be8ef5f7fe18d.jpg?s=200&amp;d=identicon"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-07 19:22:50.000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">183331</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Third Team"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.gravatar.com/avatar/7c507a4e30c13b100a7175f494647e83.jpg?s=200&amp;d=identicon"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-12 03:38:19.000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all teams.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/teams</code></p>
+
+<h2 id="get-a-specific-team">Get a Specific Team</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881"</span>
+  -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38881</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Team"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.gravatar.com/avatar/00f062fb089de61b9a7e8033bc40109a.jpg?s=200&amp;d=identicon"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-10 20:45:21.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a specific team.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/teams/&lt;TEAM-ID&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM-ID</td>
+<td>The ID of the team to retrieve</td>
+</tr>
+</tbody></table>
+
+<h1 id="projects">Projects</h1>
+
+<h2 id="get-all-projects">Get All Projects</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects"</span>
+  -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8063ca00-8877-11e7-a797-4f95526152d6"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google Actions Sample Project"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-24 02:54:09"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-08 05:21:23"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flow"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"google-actions"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1935e1c0-4638-11e7-a11b-cd5cada6e9c1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Facebook Conversation Flow"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-31 19:34:01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-08 05:19:11"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flow"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06855dd0-3923-11e7-be67-1174531b58f7"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Facebook Mock Project"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-15 04:00:25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-19 21:20:57"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mock"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all projects for a team.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM-ID</td>
+<td>The ID of the team to retrieve</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-specific-project">Get Specific Project</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b"</span>
+  -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f1c520-05c6-11e7-bc31-5554df9b496b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kindly"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-10 19:16:40"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-15 14:15:59"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mock"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a single project for a team.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM-ID</td>
+<td>The ID of the team to retrieve</td>
+</tr>
+<tr>
+<td>PROJECT-ID</td>
+<td>The ID of the project you want to retreive</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-project-boards">Get Project Boards</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards"</span>
+  -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-10 19:16:40"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-25 20:28:13"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Charity"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f1c520-05c6-11e7-bc31-5554df9b496b"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b810a20-3505-11e7-a0b2-2bc799a132cf"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 22:17:58"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 22:17:58"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Untitled"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f1c520-05c6-11e7-bc31-5554df9b496b"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"618bdc40-9a20-11e7-b4a3-95d634181268"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-15 14:15:52"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-15 14:15:59"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Charity"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f1c520-05c6-11e7-bc31-5554df9b496b"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all boards for a single project. Boards are similar to canvas, as they are what contains all your messages. For projects for <code class="prettyprint">flow</code> type, there is only 1 board at any given time. For <code class="prettyprint">mock</code> projects, you can have multiple boards.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM-ID</td>
+<td>The ID of the team to retrieve</td>
+</tr>
+<tr>
+<td>PROJECT-ID</td>
+<td>The ID of the project you want to retreive</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-specific-board">Get Specific Board</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards/16f212e0-05c6-11e7-a955-8d23fe368669"</span>
+  -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-10 19:16:40"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-25 20:28:13"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12915881-85b3-4780-9b1a-f09b8c8545bb"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generic"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://1.bp.blogspot.com/-rwxm61gCRWI/V2GEaVotrcI/AAAAAAAC0LU/jElINxZzmPocj8JaAtUJJDr0-GmjxCj6ACLcB/s1600/charity-search.png"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to charity:demo"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We believe in a world where everyone is happy"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charity-demo.com"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Join Us"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"About Us"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9d8854d-5b0b-4951-96a8-d7c9120107ab"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thanks for joining our mission! Super aweosme\nasdf\n\nHow would you like to help?"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Monthly"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Once"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e0f1df75-c363-4e4c-a40b-b8913036b40e"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Once"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ed66532a-5f2c-4b9e-88db-c9a368cec775"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generic"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://placeimg.com/300/179/tech/grayscale"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give $60"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$60 can help two people out"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://placeimg.com/300/179/tech/grayscale"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give $30"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$30 can help one person out"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://placeimg.com/300/179/tech/grayscale"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Donation"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100% of your donation brings happiness to people"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"391e4f6f-973d-46f9-a5e6-814cc8c95e0e"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"typing_indicator"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2fcfa18-03fa-49f0-b2f6-11fa98744b37"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d4f40dc-1b25-44ed-adb2-0173466ae38b"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How much would you like to donate?"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3147882b-bbf4-4b3b-bb81-ecd490414f71"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e62393e1-7674-4599-8d3d-b17be2e1a432"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your $10 donation will be processed securely using our payment provider."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay Now"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Changed my mind"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d332c76-f4ae-48d8-a133-ceca3d74940a"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Charity"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f1c520-05c6-11e7-bc31-5554df9b496b"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all boards for a single project. Boards are similar to canvas, as they are what contains all your messages. For projects for <code class="prettyprint">flow</code> type, there is only 1 board at any given time. For <code class="prettyprint">mock</code> projects, you can have multiple boards.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards/&lt;BOARD-ID&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEAM-ID</td>
+<td>The ID of the team to retrieve</td>
+</tr>
+<tr>
+<td>PROJECT-ID</td>
+<td>The ID of the project you want to retreive</td>
+</tr>
+<tr>
+<td>BOARD-ID</td>
+<td>The ID of the specific board you want to retreive</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-messages">Get Messages</h2>
+
+          <h1 id="errors">Errors</h1>
+
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified kitten could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&rsquo;m a teapot</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
