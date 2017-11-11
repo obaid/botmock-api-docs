@@ -5,7 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://botmock.com/settings#/api'>Sign Up for a Developer Key</a>
 
 includes:
   - errors
