@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Botmock API (Early Preview) Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -107,7 +107,6 @@
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -115,11 +114,158 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to Botmock API (early preview). You can use our API to access your Botmock projects and get details like messages payload, boards etc.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Please note that this <em>early preview</em> of our API. In coming months we will be updating our API to provide more robust information. For specific requests please email at <a href="mailto:support@botmock.com">support@botmock.com</a>.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<h1 id="overview">Overview</h1>
+
+<p>In Botmock everyone must belong to a team. Each team can have multiple projects under it and each project can be of one of two types:</p>
+
+<ul>
+<li>Conversation <strong>Flow</strong></li>
+<li>Conversation <strong>Mock</strong></li>
+</ul>
+
+<h2 id="conversation-flows">Conversation Flows</h2>
+
+<p>As the name suggests, conversation flows represent an entire conversation tree where each node can have multiple outgoing connections. Each node is called a <strong>message</strong>. Messages can be of different types. See <a href="#message-types">message types</a> for more details.</p>
+
+<h2 id="conversation-mocks">Conversation Mocks</h2>
+
+<p>Another way to visualize a single conversation path is to build a conversation mock. This type of project has multiple <strong>boards</strong> that represent a conversation screen based on the <a href="#project-types">project type</a>. In a mock project, a user can create multiple boards but each board can only have one chain of linked messages. In other words, each message can only have <em>one</em> previous and <em>one</em> next possible message.</p>
+
+<h2 id="project-types">Project Types</h2>
+
+<h2 id="message-types">Message Types</h2>
+
+<h3 id="facebook-messenger">Facebook Messenger</h3>
+
+<table><thead>
+<tr>
+<th>Message Type</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>User Reply</td>
+<td>user_reply</td>
+<td>Represents an input from a user</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>text</td>
+<td>Represents what your bot says to the user</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>image</td>
+<td>Represents an image template. Can be shown as a user input</td>
+</tr>
+<tr>
+<td>Typing</td>
+<td>typing_indicator</td>
+<td>Shows typing bubble</td>
+</tr>
+<tr>
+<td>Button</td>
+<td>button</td>
+<td>Represents the button template</td>
+</tr>
+<tr>
+<td>Quick Replies</td>
+<td>quick_replies</td>
+<td>Represents the quick replies template</td>
+</tr>
+<tr>
+<td>Generic</td>
+<td>generic</td>
+<td>Represents the generic card template. Turns into <strong>carousel</strong> if multiple cards are added</td>
+</tr>
+<tr>
+<td>List</td>
+<td>list</td>
+<td>Represents the list template</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>location</td>
+<td>Represents the location template</td>
+</tr>
+<tr>
+<td>Webview</td>
+<td>webview</td>
+<td>Represents the webview template</td>
+</tr>
+<tr>
+<td>Receipt</td>
+<td>receipt</td>
+<td>Represents the receipt template</td>
+</tr>
+</tbody></table>
+
+<h3 id="amazon-alexa">Amazon Alexa</h3>
+
+<table><thead>
+<tr>
+<th>Message Type</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>User Reply</td>
+<td>user_reply</td>
+<td>Represents an input from a user</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>text</td>
+<td>Represents what your bot says to the user</td>
+</tr>
+</tbody></table>
+
+<h3 id="actions-on-google">Actions on Google</h3>
+
+<table><thead>
+<tr>
+<th>Message Type</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>User Reply</td>
+<td>user_reply</td>
+<td>Represents an input from a user</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>text</td>
+<td>Represents what your bot says to the user</td>
+</tr>
+<tr>
+<td>Suggestion Chips</td>
+<td>suggestion_chips</td>
+<td>Represents the suggestion chips template</td>
+</tr>
+<tr>
+<td>Card</td>
+<td>card</td>
+<td>Represents the card template</td>
+</tr>
+<tr>
+<td>Carousel</td>
+<td>carousel</td>
+<td>Represents the carousel template</td>
+</tr>
+<tr>
+<td>List</td>
+<td>list</td>
+<td>Represents the list template</td>
+</tr>
+</tbody></table>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -127,22 +273,22 @@
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
+curl <span class="s2">"https://api.botmock.com/api/teams"</span>
   -H <span class="s2">"Authorization: Bearer YOUR-API-TOKEN"</span>
 </code></pre>
 
 <blockquote>
-<p>Make sure to replace <code class="prettyprint">YOUR-API-TOKEN</code> with your API key.</p>
+<p>Make sure to replace <code class="prettyprint">YOUR-API-TOKEN</code> with your API token.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Botmock uses API tokens to grant access to the API.  You can register a new Botmock API token at our <a href="https://botmock.com/settings#/api">account settings</a>. Please note that tokens are only shown once and are as important as your account login details.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Botmock expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
-<p><code class="prettyprint">Authorization: YOUR-API-TOKEN</code></p>
+<p><code class="prettyprint">Authorization: Bearer YOUR-API-TOKEN</code></p>
 
 <aside class="notice">
-You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
+You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 </aside>
 
 <h1 id="teams">Teams</h1>
@@ -152,7 +298,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 <blockquote>
 <p>To get all teams, use this code:</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.botmock.com/api/teams"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -195,12 +341,43 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 
 <p>This endpoint retrieves all teams.</p>
 
+<p>Response:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>a unique id that represents this team</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>name of the team</td>
+</tr>
+<tr>
+<td>photo</td>
+<td>url</td>
+<td>URL representing the image for the team</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>object</td>
+<td>date this team was created</td>
+</tr>
+</tbody></table>
+
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/teams</code></p>
+<p><code class="prettyprint">GET https://api.botmock.com/api/teams</code></p>
 
 <h2 id="get-a-specific-team">Get a Specific Team</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.botmock.com/api/teams/38881"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -223,7 +400,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/teams/&lt;TEAM-ID&gt;</code></p>
+<p><code class="prettyprint">GET https://api.botmock.com/teams/&lt;TEAM-ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -242,7 +419,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 <h1 id="projects">Projects</h1>
 
 <h2 id="get-all-projects">Get All Projects</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.botmock.com/api/teams/38881/projects"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -281,7 +458,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects</code></p>
+<p><code class="prettyprint">GET https://api.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -298,7 +475,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 </tbody></table>
 
 <h2 id="get-specific-project">Get Specific Project</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -319,7 +496,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;</code></p>
+<p><code class="prettyprint">GET https://api.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -340,7 +517,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 </tbody></table>
 
 <h2 id="get-project-boards">Get Project Boards</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -382,7 +559,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards</code></p>
+<p><code class="prettyprint">GET https://api.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -403,7 +580,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 </tbody></table>
 
 <h2 id="get-specific-board">Get Specific Board</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards/16f212e0-05c6-11e7-a955-8d23fe368669"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://api.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards/16f212e0-05c6-11e7-a955-8d23fe368669"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -411,171 +588,97 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-10 19:16:40"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-25 20:28:13"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12915881-85b3-4780-9b1a-f09b8c8545bb"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generic"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://1.bp.blogspot.com/-rwxm61gCRWI/V2GEaVotrcI/AAAAAAAC0LU/jElINxZzmPocj8JaAtUJJDr0-GmjxCj6ACLcB/s1600/charity-search.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to charity:demo"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We believe in a world where everyone is happy"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://charity-demo.com"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Join Us"</span><span class="p">,</span><span class="w">
-                            </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"About Us"</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
+    </span><span class="nt">"board"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"root_messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"6af54577-593a-436a-866f-11be95c55b64"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6af54577-593a-436a-866f-11be95c55b64"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"message_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"next_message_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"c728f3be-218f-40d0-bc83-d92bfca96022"</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nt">"previous_message_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                </span><span class="nt">"is_root"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Search Flights"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9d8854d-5b0b-4951-96a8-d7c9120107ab"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thanks for joining our mission! Super aweosme\nasdf\n\nHow would you like to help?"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Monthly"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Once"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c728f3be-218f-40d0-bc83-d92bfca96022"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"message_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"next_message_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"e18708cb-2dcf-4545-8c14-7f8c39a7f9f0"</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nt">"previous_message_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"6af54577-593a-436a-866f-11be95c55b64"</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nt">"is_root"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweet! I love finding people the least agonizing flights! Say something like \"non-stop flight on United from SFO to YOW 10/02 to 10/09\""</span><span class="w">
                 </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e0f1df75-c363-4e4c-a40b-b8913036b40e"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Once"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ed66532a-5f2c-4b9e-88db-c9a368cec775"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generic"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"elements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://placeimg.com/300/179/tech/grayscale"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give $60"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$60 can help two people out"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://placeimg.com/300/179/tech/grayscale"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give $30"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$30 can help one person out"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://placeimg.com/300/179/tech/grayscale"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom Donation"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"subtitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100% of your donation brings happiness to people"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="p">,</span><span class="w">
-                            </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"391e4f6f-973d-46f9-a5e6-814cc8c95e0e"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"typing_indicator"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2fcfa18-03fa-49f0-b2f6-11fa98744b37"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Give Now"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4d4f40dc-1b25-44ed-adb2-0173466ae38b"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How much would you like to donate?"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3147882b-bbf4-4b3b-bb81-ecd490414f71"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$10"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e62393e1-7674-4599-8d3d-b17be2e1a432"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"button"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your $10 donation will be processed securely using our payment provider."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay Now"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"selected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Changed my mind"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d332c76-f4ae-48d8-a133-ceca3d74940a"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"board_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f212e0-05c6-11e7-a955-8d23fe368669"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"component_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_reply"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay Now"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"show_for"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your Charity"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"project_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16f1c520-05c6-11e7-bc31-5554df9b496b"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-20 23:47:47.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-20 23:47:47.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timezone_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all boards for a single project. Boards are similar to canvas, as they are what contains all your messages. For projects for <code class="prettyprint">flow</code> type, there is only 1 board at any given time. For <code class="prettyprint">mock</code> projects, you can have multiple boards.</p>
+<p>This endpoint retrieves a specific board that you requests. Each board contains a <code class="prettyprint">root_messages</code> property that is an array of <code class="prettyprint">message ids</code> that act as a starting point (i.e. they have no connections coming into them) and a <code class="prettyprint">messages</code> property that is an <code class="prettyprint">Array</code> of <code class="prettyprint">messages</code> that have the following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message_id</td>
+<td>string</td>
+<td>a unique id that represents this message</td>
+</tr>
+<tr>
+<td>message_type</td>
+<td>string</td>
+<td>type of message (see <a href="#message-types">Message Types</a> for details)</td>
+</tr>
+<tr>
+<td>next_message_ids</td>
+<td>array</td>
+<td>an array representing a list of possible messages that you can go to from here</td>
+</tr>
+<tr>
+<td>previous_message_ids</td>
+<td>array</td>
+<td>an array representing a list of possible messages that lead to this message</td>
+</tr>
+<tr>
+<td>is_root</td>
+<td>boolean</td>
+<td>a boolean is this a root message</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>object</td>
+<td>a data structure that represents the JSON representation of what the message looks like. <em>NOTE</em> this might not be a complete payload that you can send to the platform.</td>
+</tr>
+</tbody></table>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards/&lt;BOARD-ID&gt;</code></p>
+<p><code class="prettyprint">GET https://api.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards/&lt;BOARD-ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -599,13 +702,13 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 </tr>
 </tbody></table>
 
-<h2 id="get-messages">Get Messages</h2>
+<h2 id="platform-payloads-coming-soon">Platform Payloads (Coming Soon)</h2>
+
+<p>In near future we will be giving you access to get platform ready JSON payload for any given message within the board. </p>
 
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The Botmock API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -619,19 +722,19 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td>Unauthorized &ndash; Your API token is wrong</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td>Forbidden &ndash; You are trying to get a resource that your account is not authorized for</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td>Not Found &ndash; The specified resource could not be found</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed &ndash; You tried to access a resource with an invalid method</td>
 </tr>
 <tr>
 <td>406</td>
@@ -639,15 +742,11 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API key.
 </tr>
 <tr>
 <td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td>Gone &ndash; The resource requested has been removed from our servers</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests &ndash; You&rsquo;re making too many requests! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
