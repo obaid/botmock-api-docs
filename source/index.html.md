@@ -36,6 +36,14 @@ Another way to visualize a single conversation path is to build a conversation m
 
 ## Project Types
 
+We have to different kinds of projects in Botmock.
+
+### Conversation Flow 
+Conversation flows are tree like structures which enable to you map out the entire conversations. This is a great way to map out how your user journey would look like within your bot. We recommend you to create the conversation flow around a specific user story. You can always extract specific paths as conversation mocks.
+
+### Conversation Mock
+Conversation mocks are simply a single conversation layout. They are great if you want to quickly visualize a single conversation path and perhaps create variations for it. In a conversation mock project you are able to create multiple boards. Each board represents a single chat window. 
+
 ## Message Types
 
 ### Facebook Messenger
