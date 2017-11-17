@@ -21,7 +21,7 @@ Please note that this *early preview* of our API. In coming months we will be up
 
 ## API Endpoint
 
-All API requests should be sent to https://v1.botmock.com/api
+All API requests should be sent to https://botmock.com/api
 
 # Overview
 
@@ -90,7 +90,7 @@ List | list | Represents the list template
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "https://v1.botmock.com/api/teams"
+curl "https://botmock.com/api/teams"
   -H "Authorization: Bearer YOUR-API-TOKEN"
 ```
 
@@ -113,7 +113,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 > To get all teams, use this code:
 
 ```shell
-curl "https://v1.botmock.com/api/teams"
+curl "https://botmock.com/api/teams"
   -H "Authorization: YOUR-API-TOKEN"
 ```
 
@@ -167,14 +167,14 @@ created_at  | object | date this team was created
 
 ### HTTP Request
 
-`GET https://v1.botmock.com/api/teams`
+`GET https://botmock.com/api/teams`
 
 
 
 ## Get a Specific Team
 
 ```shell
-curl "https://v1.botmock.com/api/teams/38881"
+curl "https://botmock.com/api/teams/38881"
   -H "Authorization: YOUR-API-TOKEN"
 ```
 
@@ -197,7 +197,7 @@ This endpoint retrieves a specific team.
 
 ### HTTP Request
 
-`GET https://v1.botmock.com/teams/<TEAM-ID>`
+`GET https://botmock.com/teams/<TEAM-ID>`
 
 ### URL Parameters
 
@@ -211,7 +211,7 @@ TEAM-ID | The ID of the team to retrieve
 ## Get All Projects
 
 ```shell
-curl "https://v1.botmock.com/api/teams/38881/projects"
+curl "https://botmock.com/api/teams/38881/projects"
   -H "Authorization: YOUR-API-TOKEN"
 ```
 
@@ -250,7 +250,7 @@ This endpoint retrieves all projects for a team.
 
 ### HTTP Request
 
-`GET https://v1.botmock.com/api/teams/<TEAM-ID>/projects`
+`GET https://botmock.com/api/teams/<TEAM-ID>/projects`
 
 ### URL Parameters
 
@@ -261,7 +261,7 @@ TEAM-ID | The ID of the team to retrieve
 ## Get Specific Project
 
 ```shell
-curl "https://v1.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b"
+curl "https://botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b"
   -H "Authorization: YOUR-API-TOKEN"
 ```
 
@@ -282,7 +282,7 @@ This endpoint retrieves a single project for a team.
 
 ### HTTP Request
 
-`GET https://v1.botmock.com/api/teams/<TEAM-ID>/projects/<PROJECT-ID>`
+`GET https://botmock.com/api/teams/<TEAM-ID>/projects/<PROJECT-ID>`
 
 ### URL Parameters
 
@@ -294,7 +294,7 @@ PROJECT-ID | The ID of the project you want to retreive
 ## Get Project Boards
 
 ```shell
-curl "https://v1.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards"
+curl "https://botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards"
   -H "Authorization: YOUR-API-TOKEN"
 ```
 
@@ -336,7 +336,7 @@ This endpoint retrieves all boards for a single project. Boards are similar to c
 
 ### HTTP Request
 
-`GET https://v1.botmock.com/api/teams/<TEAM-ID>/projects/<PROJECT-ID>/boards`
+`GET https://botmock.com/api/teams/<TEAM-ID>/projects/<PROJECT-ID>/boards`
 
 ### URL Parameters
 
@@ -348,7 +348,7 @@ PROJECT-ID | The ID of the project you want to retreive
 ## Get Specific Board
 
 ```shell
-curl "https://v1.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards/16f212e0-05c6-11e7-a955-8d23fe368669"
+curl "https://botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards/16f212e0-05c6-11e7-a955-8d23fe368669"
   -H "Authorization: YOUR-API-TOKEN"
 ```
 
@@ -416,7 +416,7 @@ payload | object | a data structure that represents the JSON representation of w
 
 ### HTTP Request
 
-`GET https://v1.botmock.com/api/teams/<TEAM-ID>/projects/<PROJECT-ID>/boards/<BOARD-ID>`
+`GET https://botmock.com/api/teams/<TEAM-ID>/projects/<PROJECT-ID>/boards/<BOARD-ID>`
 
 ### URL Parameters
 
