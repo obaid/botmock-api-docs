@@ -106,7 +106,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://botmock.com/settings#/api'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://app.botmock.com/settings#/api'>Sign Up for a Developer Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -120,7 +120,7 @@
 
 <h2 id="api-endpoint">API Endpoint</h2>
 
-<p>All API requests should be sent to https://botmock.com/api</p>
+<p>All API requests should be sent to https://app.botmock.com/api</p>
 
 <h1 id="overview">Overview</h1>
 
@@ -287,7 +287,7 @@
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://botmock.com/api/teams"</span>
+curl <span class="s2">"https://app.botmock.com/api/teams"</span>
   -H <span class="s2">"Authorization: Bearer YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -295,7 +295,7 @@ curl <span class="s2">"https://botmock.com/api/teams"</span>
 <p>Make sure to replace <code class="prettyprint">YOUR-API-TOKEN</code> with your API token.</p>
 </blockquote>
 
-<p>Botmock uses API tokens to grant access to the API.  You can register a new Botmock API token at our <a href="https://botmock.com/settings#/api">account settings</a>. Please note that tokens are only shown once and are as important as your account login details.</p>
+<p>Botmock uses API tokens to grant access to the API.  You can register a new Botmock API token at our <a href="https://app.botmock.com/settings#/api">account settings</a>. Please note that tokens are only shown once and are as important as your account login details.</p>
 
 <p>Botmock expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
@@ -312,7 +312,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 <blockquote>
 <p>To get all teams, use this code:</p>
 </blockquote>
-<pre class="highlight shell"><code>curl <span class="s2">"https://botmock.com/api/teams"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.botmock.com/api/teams"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -388,10 +388,10 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://botmock.com/api/teams</code></p>
+<p><code class="prettyprint">GET https://app.botmock.com/api/teams</code></p>
 
 <h2 id="get-a-specific-team">Get a Specific Team</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://botmock.com/api/teams/38881"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.botmock.com/api/teams/38881"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -414,7 +414,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://botmock.com/teams/&lt;TEAM-ID&gt;</code></p>
+<p><code class="prettyprint">GET https://app.botmock.com/teams/&lt;TEAM-ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -433,7 +433,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 <h1 id="projects">Projects</h1>
 
 <h2 id="get-all-projects">Get All Projects</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://botmock.com/api/teams/38881/projects"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.botmock.com/api/teams/38881/projects"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -472,7 +472,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://botmock.com/api/teams/&lt;TEAM-ID&gt;/projects</code></p>
+<p><code class="prettyprint">GET https://app.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -489,7 +489,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 </tbody></table>
 
 <h2 id="get-specific-project">Get Specific Project</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -510,7 +510,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;</code></p>
+<p><code class="prettyprint">GET https://app.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -531,7 +531,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 </tbody></table>
 
 <h2 id="get-project-boards">Get Project Boards</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -573,7 +573,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards</code></p>
+<p><code class="prettyprint">GET https://app.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -594,7 +594,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 </tbody></table>
 
 <h2 id="get-specific-board">Get Specific Board</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards/16f212e0-05c6-11e7-a955-8d23fe368669"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5554df9b496b/boards/16f212e0-05c6-11e7-a955-8d23fe368669"</span>
   -H <span class="s2">"Authorization: YOUR-API-TOKEN"</span>
 </code></pre>
 
@@ -692,7 +692,7 @@ You must replace <code>YOUR-API-TOKEN</code> with your personal API token.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards/&lt;BOARD-ID&gt;</code></p>
+<p><code class="prettyprint">GET https://app.botmock.com/api/teams/&lt;TEAM-ID&gt;/projects/&lt;PROJECT-ID&gt;/boards/&lt;BOARD-ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
