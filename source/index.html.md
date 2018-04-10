@@ -1,5 +1,5 @@
 ---
-title: Botmock API (Early Preview) Reference
+title: Botmock API v1 Reference
 
 language_tabs:
   - shell
