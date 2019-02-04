@@ -362,29 +362,86 @@ curl "https://app.botmock.com/api/teams/38881/projects/16f1c520-05c6-11e7-bc31-5
         ],
         "messages": [
             {
-                "message_id": "6af54577-593a-436a-866f-11be95c55b64",
-                "message_type": "user_reply",
+                "message_id": "c13bf3c7-fd33-4f82-af21-f927d0d21988",
+                "message_type": "text",
                 "next_message_ids": [
-                    "c728f3be-218f-40d0-bc83-d92bfca96022"
+                    {
+                        "message_id": "881a52a8-69f9-4706-8c6a-efdc98d50805",
+                        "action": {
+                            "type": "custom",
+                            "title": "Click to edit",
+                            "payload": "CLICK_TO_EDIT"
+                        },
+                        "intent": "",
+                        "conditional": false
+                    }
                 ],
                 "previous_message_ids": [],
                 "is_root": true,
-                "payload": {
-                    "text": "Search Flights"
-                }
+                "payload": {}
             },
             {
-                "message_id": "c728f3be-218f-40d0-bc83-d92bfca96022",
+                "message_id": "881a52a8-69f9-4706-8c6a-efdc98d50805",
                 "message_type": "text",
                 "next_message_ids": [
-                    "e18708cb-2dcf-4545-8c14-7f8c39a7f9f0"
+                    {
+                        "message_id": "f7064ff1-c729-4e94-9342-b43cbe154c69",
+                        "action": {
+                            "type": "postback",
+                            "title": "Create",
+                            "payload": "CREATE"
+                        },
+                        "intent": {
+                            "value": "57c694c0-1620-11e9-a7a9-c737e119ebc2",
+                            "label": "CreateObject"
+                        },
+                        "conditional": {
+                            "id": "g-b3a93da2-a413-4cbf-b57a-a8e015294dde",
+                            "rules": [
+                                {
+                                    "id": "r-62b03208-11bc-4fed-85f3-1d5844dd1d4c",
+                                    "field": "aed6d0a0-161f-11e9-a3c8-71dcddbc03ea",
+                                    "value": "2",
+                                    "operator": "="
+                                }
+                            ],
+                            "combinator": "and"
+                        }
+                    },
+                    {
+                        "message_id": "026af6f5-d651-4af2-96ba-431c8d8c9cd3",
+                        "action": {
+                            "type": "postback",
+                            "title": "list",
+                            "payload": "LIST"
+                        },
+                        "intent": {
+                            "value": "2cfcf330-1620-11e9-8b75-2b956cac7c2c",
+                            "label": "LIstObjects"
+                        },
+                        "conditional": false
+                    }
                 ],
                 "previous_message_ids": [
-                    "6af54577-593a-436a-866f-11be95c55b64"
+                    {
+                        "message_id": "c13bf3c7-fd33-4f82-af21-f927d0d21988",
+                        "action": "*"
+                    },
+                    {
+                        "message_id": "026af6f5-d651-4af2-96ba-431c8d8c9cd3",
+                        "action": "*"
+                    },
+                    {
+                        "message_id": "efb97b02-ff88-4309-a19a-dda71db763d3",
+                        "action": "*"
+                    }
                 ],
                 "is_root": false,
                 "payload": {
-                    "text": "Sweet! I love finding people the least agonizing flights! Say something like \"non-stop flight on United from SFO to YOW 10/02 to 10/09\""
+                    "nodeName": "Ask",
+                    "context": [],
+                    "text": "What would you like me to do? List object or create object?",
+                    "audio_file": ""
                 }
             },
             ...
