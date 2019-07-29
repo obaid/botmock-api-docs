@@ -724,16 +724,16 @@ We're actively working on creating wrappers that will make interacting with our 
 
 * [Botmock-JS (Javascript)](https://github.com/obaid/botmock-js)
 
-# Integrations
+# Open-source Export Libs
 
-We have some open-source integrations that can help you export to specific platforms like DialogFlow, Watson etc.
+We have some open-source export libraries that can help you export to specific platforms like DialogFlow, Watson etc.
 
 * [DialogFlow (code)](https://github.com/Botmock/botmock-dialogflow-export)
 * [IBM Watson (code)](https://github.com/Botmock/botmock-watson-export)
 * [RASA (code)](https://github.com/Botmock/botmock-rasa-export)
 * [Microsoft Bot Framework (code)](https://github.com/Botmock/botmock-botframework-export)
 * [Jovo (code)](https://github.com/Botmock/botmock-jovo-export)
-* Alexa Skills Kit (Coming Soon)
+* [Alexa Skills Kit (code)](https://github.com/Botmock/botmock-skills-kit-export)
 * Amazon Lex (Coming Soon)
 * BotPress (Coming Soon)
 * RiveScript (Coming Soon)
