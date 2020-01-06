@@ -1,9 +1,4 @@
 # Errors
-
-<aside class="notice">
-This section is being worked on.
-</aside>
-
 The Botmock API uses the following error codes:
 
 

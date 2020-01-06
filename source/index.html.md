@@ -732,9 +732,10 @@ We have some open-source export libraries that can help you export to specific p
 * [IBM Watson (code)](https://github.com/Botmock/botmock-watson-export)
 * [RASA (code)](https://github.com/Botmock/botmock-rasa-export)
 * [Microsoft Bot Framework (code)](https://github.com/Botmock/botmock-botframework-export)
+* [Microsoft LUIS (code)](https://github.com/Botmock/botmock-luis-export)
 * [Jovo (code)](https://github.com/Botmock/botmock-jovo-export)
 * [Alexa Skills Kit (code)](https://github.com/Botmock/botmock-skills-kit-export)
-* Amazon Lex (Coming Soon)
+* [Amazon Lex (code)](https://github.com/Botmock/botmock-lex-export)
 * BotPress (Coming Soon)
 * RiveScript (Coming Soon)
 
